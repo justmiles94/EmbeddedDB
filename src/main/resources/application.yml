@@ -1,0 +1,24 @@
+jvm: java.version
+groupId: project.groupId
+dependency: project.dependencies.dependency
+
+spring:
+  h2:
+    console:
+      enabled: true
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+  datasource:
+    url: jdbc:h2:file:./embedded
+
+---
+spring:
+  profiles: me
+myself: justin
+
+---
+spring:
+  profiles: you
+myself: they

@@ -1,0 +1,15 @@
+2017-12-25 23:12:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE COURSE (CRN INTEGER NOT NULL, CMP VARCHAR(255), CRED_LOWER DOUBLE NOT NULL, CRED_UPPER DOUBLE NOT NULL, CRSE VARCHAR(255), SEC VARCHAR(255), SELECT[*] BOOLEAN NOT NULL, SUBJ VARCHAR(255), TITLE VARCHAR(255), PRIMARY KEY (CRN)) "; expected "identifier"; SQL statement:
+create table course (crn integer not null, cmp varchar(255), cred_lower double not null, cred_upper double not null, crse varchar(255), sec varchar(255), select boolean not null, subj varchar(255), title varchar(255), primary key (crn)) [42001-196]
+2017-12-25 23:12:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "COURSE" not found; SQL statement:
+insert into course (cmp, cred_lower, cred_upper, crse, sec, select, subj, title, crn) values (?, ?, ?, ?, ?, ?, ?, ?, ?) [42102-196]
+2017-12-25 23:13:13 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE COURSE (CRN INTEGER NOT NULL, CMP VARCHAR(255), CRED_LOWER DOUBLE NOT NULL, CRED_UPPER DOUBLE NOT NULL, CRSE VARCHAR(255), SEC VARCHAR(255), SELECT[*] BOOLEAN NOT NULL, SUBJ VARCHAR(255), TITLE VARCHAR(255), PRIMARY KEY (CRN)) "; expected "identifier"; SQL statement:
+create table course (crn integer not null, cmp varchar(255), cred_lower double not null, cred_upper double not null, crse varchar(255), sec varchar(255), select boolean not null, subj varchar(255), title varchar(255), primary key (crn)) [42001-196]
+2017-12-25 23:25:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "COURSE" not found; SQL statement:
+insert into course (cmp, cred_lower, cred_upper, crse, sec, select, subj, title, crn) values (?, ?, ?, ?, ?, ?, ?, ?, ?) [42102-196]
+2017-12-25 23:25:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "COURSE" not found; SQL statement:
+select count(*) as col_0_0_ from course course0_ [42102-196]

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO" monitorInterval="30">
+	<Properties>
+		<Property name="LOG_PATTERN">
+			%d{yyyy-MM-dd HH:mm:ss.SSS} %5p ${hostName}: %m%n%ex
+		</Property>
+	</Properties>
+	<Appenders>
+		<RollingFile name="FileAppender" fileName="logs/run-${date:yyyy-MM-dd}.log"
+			filePattern="logs/run-${date:yyyy-MM-dd}.log">
+			<PatternLayout>
+				<Pattern>${LOG_PATTERN}</Pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="10MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="10" />
+		</RollingFile>
+		<SMTP name="MailAppender" 
+			subject="Problem"
+			to="justin.miles@bjc.org"
+			from="justin@gmail.com" 
+			smtpHost="tumbleweed.carenet.org"
+			smtpPort="25" 
+			smtpUsername="ebiz" 
+			smtpPassword="!mail#auth">
+			<ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY" />
+			<PatternLayout>
+				<Pattern>${LOG_PATTERN}</Pattern>
+			</PatternLayout>
+		</SMTP>
+	</Appenders>
+	<Loggers>
+		<Logger name="com.example.file" level="WARN" additivity="false">
+			<AppenderRef ref="FileAppender" />
+		</Logger>
+		<Logger name="com.example.mail" level="ERROR" additivity="false">
+			<AppenderRef ref="MailAppender" />
+		</Logger>
+		<Root level="WARN">
+			<AppenderRef ref="FileAppender" />
+			<AppenderRef ref="MailAppender" />
+		</Root>
+	</Loggers>
+</Configuration>
